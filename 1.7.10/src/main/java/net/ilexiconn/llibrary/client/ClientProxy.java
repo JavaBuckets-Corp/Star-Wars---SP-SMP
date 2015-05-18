@@ -1,9 +1,5 @@
 package net.ilexiconn.llibrary.client;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.ilexiconn.llibrary.client.ClientEventHandler;
 import net.ilexiconn.llibrary.client.gui.GuiChangelog;
 import net.ilexiconn.llibrary.client.gui.GuiHelper;
 import net.ilexiconn.llibrary.client.gui.GuiLLibMainMenu;
@@ -16,6 +12,9 @@ import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends ServerProxy
@@ -28,8 +27,9 @@ public class ClientProxy extends ServerProxy
         FMLCommonHandler.instance().bus().register(new ClientEventHandler());
         MinecraftForge.EVENT_BUS.register(new GuiHelper());
         FMLCommonHandler.instance().bus().register(new GuiHelper());
-
-        //GuiHelper.addOverride(GuiMainMenu.class, new GuiLLibMainMenu());
+        
+        
+        GuiHelper.addOverride(GuiMainMenu.class, new GuiLLibMainMenu());
     }
 
     public void postInit()

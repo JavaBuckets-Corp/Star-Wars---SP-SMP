@@ -9,7 +9,6 @@ import net.ilexiconn.llibrary.common.ServerProxy;
 import net.ilexiconn.llibrary.common.command.CommandLLibrary;
 
 @Mod(modid = "llibrary", name = "LLibrary", version = "${version}")
-
 public class LLibrary
 {
     @Mod.Instance("llibrary")

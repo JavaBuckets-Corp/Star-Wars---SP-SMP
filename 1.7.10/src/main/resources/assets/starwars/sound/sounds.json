@@ -1,0 +1,7 @@
+{
+    "weapons_blaster": {"category": "master","sounds": [{"name": "weapons_blaster","stream": false}]},
+    "lightsaber_on": {"category": "master","sounds": [{"name": "lightsaber_on","stream": false}]},
+    "lightsaber_off": {"category": "master","sounds": [{"name": "lightsaber_off","stream": false}]},
+    "lightsaber_swing": {"category": "master","sounds": [{"name": "lightsaber_swing","stream": false}]},
+    "jetpack": {"category": "master","sounds": [{"name": "jetpack","stream": false}]}
+}
