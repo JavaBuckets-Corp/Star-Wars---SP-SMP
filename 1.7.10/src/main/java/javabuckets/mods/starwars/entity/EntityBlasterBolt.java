@@ -67,21 +67,21 @@ public class EntityBlasterBolt extends Entity implements IProjectile
         this.yOffset = 0.0F;
     }
 
-    public EntityBlasterBolt(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
+    public EntityBlasterBolt(World world, EntityLivingBase shooter, EntityLivingBase par3EntityLivingBase, float par4, float par5)
     {
-        super(par1World);
+        super(world);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLivingBase;
+        this.shootingEntity = shooter;
 
-        if (par2EntityLivingBase instanceof EntityPlayer)
+        if (shooter instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
-        this.posY = par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight() - 0.10000000149011612D;
-        double d0 = par3EntityLivingBase.posX - par2EntityLivingBase.posX;
+        this.posY = shooter.posY + (double)shooter.getEyeHeight() - 0.10000000149011612D;
+        double d0 = par3EntityLivingBase.posX - shooter.posX;
         double d1 = par3EntityLivingBase.boundingBox.minY + (double)(par3EntityLivingBase.height / 3.0F) - this.posY;
-        double d2 = par3EntityLivingBase.posZ - par2EntityLivingBase.posZ;
+        double d2 = par3EntityLivingBase.posZ - shooter.posZ;
         double d3 = (double)MathHelper.sqrt_double(d0 * d0 + d2 * d2);
 
         if (d3 >= 1.0E-7D)
@@ -90,28 +90,28 @@ public class EntityBlasterBolt extends Entity implements IProjectile
             float f3 = (float)(-(Math.atan2(d1, d3) * 180.0D / Math.PI));
             double d4 = d0 / d3;
             double d5 = d2 / d3;
-            this.setLocationAndAngles(par2EntityLivingBase.posX + d4, this.posY, par2EntityLivingBase.posZ + d5, f2, f3);
+            this.setLocationAndAngles(shooter.posX + d4, this.posY, shooter.posZ + d5, f2, f3);
             this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
             this.setThrowableHeading(d0, d1 + (double)f4, d2, par4, par5);
         }
     }
 
-    public EntityBlasterBolt(World par1World, EntityLivingBase par2EntityLivingBase, float par3, float par4, boolean par5)
+    public EntityBlasterBolt(World world, EntityLivingBase shooter, float par3, float damage, boolean isAccurate)
     {
-        super(par1World);
+        super(world);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLivingBase;
-        this.damage = par4;
-        this.isAccurate = par5;
+        this.shootingEntity = shooter;
+        this.damage = damage;
+        this.isAccurate = isAccurate;
 
-        if (par2EntityLivingBase instanceof EntityPlayer)
+        if (shooter instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
         this.setSize(0.5F, 0.5F);
-        this.setLocationAndAngles(par2EntityLivingBase.posX, par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight(), par2EntityLivingBase.posZ, par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
+        this.setLocationAndAngles(shooter.posX, shooter.posY + (double)shooter.getEyeHeight(), shooter.posZ, shooter.rotationYaw, shooter.rotationPitch);
         this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
@@ -123,21 +123,21 @@ public class EntityBlasterBolt extends Entity implements IProjectile
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, par3 * 1.5F, 1.0F);
     }
     
-    public EntityBlasterBolt(World par1World, EntityLivingBase par2EntityLivingBase, float par3, float par4, boolean par5, float par6, float par7, float par8)
+    public EntityBlasterBolt(World world, EntityLivingBase shooter, float par3, float damage, boolean isAccurate, float x, float y, float z)
     {
-        super(par1World);
+        super(world);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLivingBase;
-        this.damage = par4;
-        this.isAccurate = par5;
+        this.shootingEntity = shooter;
+        this.damage = damage;
+        this.isAccurate = isAccurate;
 
-        if (par2EntityLivingBase instanceof EntityPlayer)
+        if (shooter instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
         this.setSize(0.5F, 0.5F);
-        this.setLocationAndAngles(par2EntityLivingBase.posX - par6, par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight() - par7, par2EntityLivingBase.posZ - par8, par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
+        this.setLocationAndAngles(shooter.posX - x, shooter.posY + (double)shooter.getEyeHeight() - y, shooter.posZ - z, shooter.rotationYaw, shooter.rotationPitch);
         this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
@@ -247,26 +247,7 @@ public class EntityBlasterBolt extends Entity implements IProjectile
 
         if (this.inGround)
         {
-            int j = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
-
-            if (block == this.field_145790_g && j == this.inData)
-            {
-                ++this.ticksInGround;
-
-                if (this.ticksInGround == 1200)
-                {
-                    this.setDead();
-                }
-            }
-            else
-            {
-                this.inGround = false;
-                this.motionX *= (double)(this.rand.nextFloat() * 0.2F);
-                this.motionY *= (double)(this.rand.nextFloat() * 0.2F);
-                this.motionZ *= (double)(this.rand.nextFloat() * 0.2F);
-                this.ticksInGround = 0;
-                this.ticksInAir = 0;
-            }
+            this.setDead();
         }
         else
         {
@@ -390,7 +371,7 @@ public class EntityBlasterBolt extends Entity implements IProjectile
                             }
                         }
 
-                        this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+                        //this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 
                         if (!(movingobjectposition.entityHit instanceof EntityEnderman))
                         {
@@ -421,7 +402,7 @@ public class EntityBlasterBolt extends Entity implements IProjectile
                     this.posX -= this.motionX / (double)f2 * 0.05000000074505806D;
                     this.posY -= this.motionY / (double)f2 * 0.05000000074505806D;
                     this.posZ -= this.motionZ / (double)f2 * 0.05000000074505806D;
-                    this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+                    //this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
                     this.inGround = true;
                     this.arrowShake = 7;
                     this.setIsCritical(false);

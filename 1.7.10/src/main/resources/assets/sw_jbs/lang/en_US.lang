@@ -1,0 +1,11 @@
+itemGroup.starwars=Star Wars
+
+item.blue_lightsaber.name=Blue Lightsaber
+item.red_lightsaber.name=Red Lightsaber
+item.green_lightsaber.name=Green Lightsaber
+item.purple_lightsaber.name=Purple Lightsaber
+
+item.e-11_blaster_rifle.name=E-11 Blaster Rifle
+item.dc-17_hand_blaster.name=DC-17 Hand Blaster
+item.sniper_rifle.name=Sniper Rifle
+item.z-6_rotary_blaster_cannon.name=Z-6 Rotary Blaster Cannon

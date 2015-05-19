@@ -37,13 +37,12 @@ public class StarWars
 	@Instance(Reference.MOD_ID)
 	public static StarWars instance;
 	
-	public static Item swTabIcon = new ItemBasic(1).setUnlocalizedName("sw_tab_icon");
 	public static CreativeTabs swTab = new CreativeTabs("starwars") 
 	{
 		@Override
 		public Item getTabIconItem() 
 		{
-			return swTabIcon;
+			return ModItems.swTabIcon;
 		}
 	};
 	

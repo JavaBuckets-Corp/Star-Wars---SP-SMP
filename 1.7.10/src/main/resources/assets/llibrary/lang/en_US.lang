@@ -1,0 +1,17 @@
+gui.llibrary.updatecheck.desc=Search for outdated LLib mods
+gui.llibrary.updatecheck.search=Searching for outdated mods
+gui.llibrary.updatecheck.fail=LLibrary was unable to check for updates!
+gui.llibrary.updatecheck.no_updates.line1=All up to date!
+gui.llibrary.updatecheck.no_updates.line2=LLibrary found no outdated mods.
+gui.llibrary.updatecheck.update=Update
+
+number.suffix.0=th
+number.suffix.1=st
+number.suffix.2=nd
+number.suffix.3=rd
+number.suffix.4=th
+number.suffix.5=th
+number.suffix.6=th
+number.suffix.7=th
+number.suffix.8=th
+number.suffix.9=th
