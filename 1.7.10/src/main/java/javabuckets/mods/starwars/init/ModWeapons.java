@@ -3,6 +3,7 @@ package javabuckets.mods.starwars.init;
 import cpw.mods.fml.common.registry.GameRegistry;
 import javabuckets.mods.starwars.item.*;
 import javabuckets.mods.starwars.item.weapons.ItemBlaster;
+import javabuckets.mods.starwars.item.weapons.ItemDoubleLightsaber;
 import javabuckets.mods.starwars.item.weapons.ItemHandBlaster;
 import javabuckets.mods.starwars.item.weapons.ItemLightsaber;
 import javabuckets.mods.starwars.item.weapons.ItemMinigun;
@@ -49,6 +50,18 @@ public class ModWeapons
 		
 		purpleLightsaber = new ItemLightsaber().setUnlocalizedName("purple_lightsaber").setFull3D();
 		GameRegistry.registerItem(purpleLightsaber, "purple_lightsaber", Reference.MOD_ID);
+		
+		blueDoubleLightsaber = new ItemDoubleLightsaber().setUnlocalizedName("blue_double_lightsaber").setFull3D();
+		GameRegistry.registerItem(blueDoubleLightsaber, "blue_double_lightsaber", Reference.MOD_ID);
+		
+		redDoubleLightsaber = new ItemDoubleLightsaber().setUnlocalizedName("red_double_lightsaber").setFull3D();
+		GameRegistry.registerItem(redDoubleLightsaber, "red_double_lightsaber", Reference.MOD_ID);
+		
+		greenDoubleLightsaber = new ItemDoubleLightsaber().setUnlocalizedName("green_double_lightsaber").setFull3D();
+		GameRegistry.registerItem(greenDoubleLightsaber, "green_double_lightsaber", Reference.MOD_ID);
+		
+		purpleDoubleLightsaber = new ItemDoubleLightsaber().setUnlocalizedName("purple_double_lightsaber").setFull3D();
+		GameRegistry.registerItem(purpleDoubleLightsaber, "purple_double_lightsaber", Reference.MOD_ID);
 		
 		/** 
 		 *	Blasters (Incl. Pistols, Rifles, Snipers, Shotguns, LMG's & SMG's) 

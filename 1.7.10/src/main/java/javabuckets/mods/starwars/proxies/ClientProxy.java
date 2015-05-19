@@ -29,12 +29,12 @@ public class ClientProxy extends ServerProxy
 		MinecraftForgeClient.registerItemRenderer(ModWeapons.greenLightsaber, new RenderLightsaber());
 		MinecraftForgeClient.registerItemRenderer(ModWeapons.purpleLightsaber, new RenderLightsaber());
 		
-		/*MinecraftForgeClient.registerItemRenderer(StarWarsObjectLoader.blueDoubleLightsaber.itemID, new RenderDoubleLightsaber());
-		MinecraftForgeClient.registerItemRenderer(StarWarsObjectLoader.redDoubleLightsaber.itemID, new RenderDoubleLightsaber());
-		MinecraftForgeClient.registerItemRenderer(StarWarsObjectLoader.greenDoubleLightsaber.itemID, new RenderDoubleLightsaber());
-		MinecraftForgeClient.registerItemRenderer(StarWarsObjectLoader.purpleDoubleLightsaber.itemID, new RenderDoubleLightsaber());
+		MinecraftForgeClient.registerItemRenderer(ModWeapons.blueDoubleLightsaber, new RenderDoubleLightsaber());
+		MinecraftForgeClient.registerItemRenderer(ModWeapons.redDoubleLightsaber, new RenderDoubleLightsaber());
+		MinecraftForgeClient.registerItemRenderer(ModWeapons.greenDoubleLightsaber, new RenderDoubleLightsaber());
+		MinecraftForgeClient.registerItemRenderer(ModWeapons.purpleDoubleLightsaber, new RenderDoubleLightsaber());
 		
-		MinecraftForgeClient.registerItemRenderer(StarWarsObjectLoader.jetpack.itemID, new RenderJetpack());
+		/*MinecraftForgeClient.registerItemRenderer(StarWarsObjectLoader.jetpack.itemID, new RenderJetpack());
 		MinecraftForgeClient.registerItemRenderer(StarWarsObjectLoader.bobaFettJetpack.itemID, new RenderJetpack());*/
 
 		MinecraftForgeClient.registerItemRenderer(ModWeapons.e_11BlasterRifle, new RenderE11Blaster());
