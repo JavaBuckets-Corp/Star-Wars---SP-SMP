@@ -1,9 +1,33 @@
 itemGroup.starwars=Star Wars
 
+tile.weapon_forge.name=Weapon Forge
+tile.charger.name=Crystal Charger
+
+item.uncharged_crystal.name=Uncharged Crystal
+item.blue_charged_crystal.name=Charged Crystal
+item.green_charged_crystal.name=Charged Crystal
+item.red_charged_crystal.name=Charged Crystal
+item.purple_charged_crystal.name=Charged Crystal
+
+item.quartz_lens.name=Quartz Lens
+item.lightsaber_blade_emitter.name=Lightsaber Blade Emitter
+item.power_cell.name=Power Cell
+
+item.blaster_barrel.name=Blaster Barrel
+item.blaster_battery-chamber.name=Blaster Battery-Chamber
+
+item.steel_ingot.name=Steel Ingot
+item.steel_plate.name=Steel Plate
+
 item.blue_lightsaber.name=Blue Lightsaber
 item.red_lightsaber.name=Red Lightsaber
 item.green_lightsaber.name=Green Lightsaber
 item.purple_lightsaber.name=Purple Lightsaber
+
+item.blue_double_lightsaber.name=Blue Double Lightsaber
+item.red_double_lightsaber.name=Red Double Lightsaber
+item.green_double_lightsaber.name=Green Double Lightsaber
+item.purple_double_lightsaber.name=Purple Double Lightsaber
 
 item.e-11_blaster_rifle.name=E-11 Blaster Rifle
 item.dc-17_hand_blaster.name=DC-17 Hand Blaster
