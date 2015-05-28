@@ -1,5 +1,6 @@
 package javabuckets.mods.starwars.main;
 
+import javabuckets.mods.starwars.command.CommandSetForceFaction;
 import javabuckets.mods.starwars.force.Force;
 import javabuckets.mods.starwars.force.ForceHandler;
 import javabuckets.mods.starwars.generator.SWWorldGenerator;
@@ -12,7 +13,6 @@ import javabuckets.mods.starwars.init.ModEntities;
 import javabuckets.mods.starwars.init.ModItems;
 import javabuckets.mods.starwars.init.ModMisc;
 import javabuckets.mods.starwars.init.ModRecipes;
-import javabuckets.mods.starwars.item.ItemBasic;
 import javabuckets.mods.starwars.proxies.ServerProxy;
 import javabuckets.mods.starwars.utility.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,7 +25,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -79,5 +79,11 @@ public class StarWars
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		HUDOverlay.init();
+	}
+	
+	@EventHandler
+	public void onServerStarting(FMLServerStartingEvent event)
+	{
+		event.registerServerCommand(new CommandSetForceFaction());
 	}
 }
