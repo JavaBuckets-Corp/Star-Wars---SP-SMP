@@ -1,5 +1,9 @@
 package javabuckets.mods.starwars.player;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javabuckets.mods.starwars.force.ForceHandler;
 import javabuckets.mods.starwars.main.StarWars;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,7 +41,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties
 	public void saveNBTData(NBTTagCompound compound)
 	{
 		NBTTagCompound properties = new NBTTagCompound();
-		//StarWars.instance.force.writeToNBT(properties);
+		StarWars.instance.force.writeToNBT(properties);
 		
 		compound.setTag(EXT_PROP_NAME, properties);
 	}
@@ -46,12 +50,17 @@ public class ExtendedPlayer implements IExtendedEntityProperties
 	public void loadNBTData(NBTTagCompound compound)
 	{
 		NBTTagCompound properties = (NBTTagCompound)compound.getTag(EXT_PROP_NAME);	
-		//StarWars.instance.force.readFromNBT(properties);
+		StarWars.instance.force.readFromNBT(properties);
+		StarWars.instance.forceHandler.force.put(this.player.getUniqueID().toString(), StarWars.instance.force.getForceFaction());
 	}
 
 	@Override
 	public void init(Entity entity, World world)
 	{
-
+		if (entity instanceof EntityPlayer)
+		{	
+			StarWars.instance.force.init(this.player, world);
+			StarWars.instance.forceHandler.force.put(this.player.getUniqueID().toString(), StarWars.instance.force.getForceFaction());
+		}	
 	}	
 }

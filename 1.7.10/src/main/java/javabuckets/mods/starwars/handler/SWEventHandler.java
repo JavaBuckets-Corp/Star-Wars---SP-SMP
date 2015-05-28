@@ -1,5 +1,10 @@
 package javabuckets.mods.starwars.handler;
 
+import org.lwjgl.input.Keyboard;
+
+import javabuckets.mods.starwars.init.ModWeapons;
+import javabuckets.mods.starwars.interfaces.IZoomingItem;
+import javabuckets.mods.starwars.main.StarWars;
 import javabuckets.mods.starwars.player.ExtendedPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
@@ -7,6 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
@@ -70,40 +77,53 @@ public class SWEventHandler
 			event.toolTip.add("" + s);
 		}*/
 	}
-	
-	@SubscribeEvent
-	public void onPlayerLootDropped(PlayerDropsEvent event)
-	{
-		if (event.entityPlayer.getCommandSenderName().equals("FiskFille"))
-		{
-			event.drops.add(new EntityItem(event.entityPlayer.worldObj, event.entityPlayer.posX, event.entityPlayer.posY, event.entityPlayer.posZ, new ItemStack(Items.fish, 1, 0)));
-		}
-		else if (event.entityPlayer.getCommandSenderName().equals("KingOfAmager"))
-		{
-			event.drops.add(new EntityItem(event.entityPlayer.worldObj, event.entityPlayer.posX, event.entityPlayer.posY, event.entityPlayer.posZ, new ItemStack(Items.bucket)));
-		}
-	}
 
 	@SubscribeEvent
 	public void onFOVUpdate(FOVUpdateEvent event)
 	{
-		/*if (event.entity.getHeldItem() != null && event.entity.getHeldItem().getItem() == ModItems.sniperRifle)
+		if (event.entity.getHeldItem() != null && event.entity.getHeldItem().getItem() == ModWeapons.scoutSniperRifle)
 		{
 			if (event.entity.getHeldItem().hasTagCompound() && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0)
 			{
 				event.newfov -= StarWars.proxy.getZoom() / 10;
 			}
-		}*/
+		}
 	}
 	
 	@SubscribeEvent
 	public void onUpdate(LivingUpdateEvent event)
 	{
-		/*if (event.entity instanceof EntityPlayer)
+		if (event.entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)event.entity;
 			
-			StarWars.instance.force.onUpdate(player, player.worldObj);
-		}*/
+			if (Keyboard.isKeyDown(Keyboard.KEY_F))
+			{
+				player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + player.getUniqueID().toString() + ": " + StarWars.instance.forceHandler.getForceFactionFromUUID(player.getUniqueID().toString())));
+				//player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + "KingOfAmager's UUID Here!" + ": " + StarWars.instance.forceHandler.getForceFactionFromUUID(player.getUniqueID().toString())));
+			}
+			
+			if (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IZoomingItem)
+			{
+				IZoomingItem zoomItem = (IZoomingItem)player.getHeldItem().getItem();
+				
+				if (Keyboard.isKeyDown(zoomItem.getZoomKey()) && Minecraft.getMinecraft().currentScreen == null)
+				{
+					if (StarWars.proxy.getZoom() < 10)
+					{
+						StarWars.proxy.setZoom(StarWars.proxy.getZoom() + 1.0F);
+					}
+				}
+				else
+				{
+					if (StarWars.proxy.getZoom() > 0)
+					{
+						StarWars.proxy.setZoom(StarWars.proxy.getZoom() - 1.0F);
+					}
+				}
+			}
+			
+			//StarWars.instance.force.onUpdate(player, player.worldObj);
+		}
 	}
 }

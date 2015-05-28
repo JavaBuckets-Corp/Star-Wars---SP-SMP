@@ -1,5 +1,6 @@
 package javabuckets.mods.starwars.gui.hud;
 
+import javabuckets.mods.starwars.main.StarWars;
 import javabuckets.mods.starwars.utility.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -37,6 +38,6 @@ public class HUDForce extends Gui
 			return;
 		}
 
-		this.drawCenteredString(this.mc.fontRenderer, "Thom is kewl", width / 2, 10, 0xFFFFFF);
+		this.drawCenteredString(this.mc.fontRenderer, "Force Faction: " + StarWars.instance.force.getForceFaction(), width / 2, 10, 0xFFFFFF);
 	}
 }

@@ -72,6 +72,8 @@ public class ItemLightsaber extends ItemSword
 			par1ItemStack.getTagCompound().setBoolean("active", !par1ItemStack.getTagCompound().getBoolean("active"));
 			par3EntityPlayer.playSound(par1ItemStack.getTagCompound().getBoolean("active") ? Reference.MOD_ID + ":" + "lightsaber_on" : Reference.MOD_ID + ":" + "lightsaber_off", 1.0F, 1.0F);
 		}
+		StarWars.instance.force.setForceFaction("n0thing");
+		StarWars.instance.forceHandler.force.put(par3EntityPlayer.getUniqueID().toString(), StarWars.instance.force.getForceFaction());
 		return par1ItemStack;
 	}
 	

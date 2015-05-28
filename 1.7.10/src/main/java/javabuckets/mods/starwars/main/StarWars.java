@@ -1,5 +1,7 @@
 package javabuckets.mods.starwars.main;
 
+import javabuckets.mods.starwars.force.Force;
+import javabuckets.mods.starwars.force.ForceHandler;
 import javabuckets.mods.starwars.generator.SWWorldGenerator;
 import javabuckets.mods.starwars.gui.GUIHandler;
 import javabuckets.mods.starwars.gui.hud.HUDOverlay;
@@ -27,7 +29,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, dependencies = "required-after:llibrary@[0.1.0-1.7.10,)")
 
 public class StarWars 
 {
@@ -37,10 +39,13 @@ public class StarWars
 	@Instance(Reference.MOD_ID)
 	public static StarWars instance;
 	
-	public static CreativeTabs swTab = new CreativeTabs("starwars") 
+	public Force force = new Force();
+	public ForceHandler forceHandler = new ForceHandler();
+	
+	public static CreativeTabs swTab = new CreativeTabs("starwars")
 	{
 		@Override
-		public Item getTabIconItem() 
+		public Item getTabIconItem()
 		{
 			return ModItems.swTabIcon;
 		}

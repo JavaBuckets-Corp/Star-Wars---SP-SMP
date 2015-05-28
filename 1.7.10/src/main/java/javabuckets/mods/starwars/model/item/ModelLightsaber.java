@@ -19,6 +19,7 @@ public class ModelLightsaber extends ModelBase
 	ModelRenderer Deco2;
 	ModelRenderer Deco3;
 	ModelRenderer Deco4;
+	
 	ModelRenderer bladeInner;
 	ModelRenderer bladeOuter;
 
@@ -105,12 +106,14 @@ public class ModelLightsaber extends ModelBase
 		Deco4.setTextureSize(64, 64);
 		Deco4.mirror = true;
 		setRotation(Deco4, 0F, 0F, 0F);
+		
 		bladeInner = new ModelRenderer(this, 0, 0);
 		bladeInner.addBox(-0.5F, -32F, -0.5F, 1, 32, 1);
 		bladeInner.setRotationPoint(0F, 6F, 0F);
 		bladeInner.setTextureSize(64, 64);
 		bladeInner.mirror = true;
 		setRotation(bladeInner, 0F, 0F, 0F);
+		
 		bladeOuter = new ModelRenderer(this, 0, 0);
 		bladeOuter.addBox(-1.5F, -33F, -1.5F, 3, 33, 3);
 		bladeOuter.setRotationPoint(0F, 6F, 0F);

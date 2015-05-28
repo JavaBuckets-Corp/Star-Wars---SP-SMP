@@ -1,11 +1,15 @@
 [
     {
-        "modid": "llibrary",
-        "name": "LLibrary",
-        "version": "${version}",
-        "authorList": ["iLexiconn"],
-        "credits": "Gegy1000, FiskFille, BobMowzie, jglrxavpok, RafaMv, coolAlias",
-        "url": "https://ilexiconn.net/",
-        "description": "A lightweight library for Minecraft mods."
+        "modid": "sw_jbs",
+        "name": "The Star Wars Mod",
+        "version": "V.6_00.00",
+        "mcversion": "1.7.10",
+        "authorList": ["JavaBuckets"],
+        "credits": "iLexiconn",
+        "url": "http://www.planetminecraft.com/member/javabuckets/",
+        "description": "INSERT DESCRIPTION",
+		"requiredMods": [ "Forge" ],
+		"dependencies": [ "LLibrary" ],
+		"useDependencyInformation": true
     }
 ]
