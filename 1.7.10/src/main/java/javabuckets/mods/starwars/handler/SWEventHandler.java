@@ -17,6 +17,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -48,6 +49,17 @@ public class SWEventHandler
 		if (world.provider.dimensionId == 0)
 		{
 
+		}
+	}
+	
+	@SubscribeEvent
+	public void onEntityJoinWorld(EntityJoinWorldEvent event)
+	{
+		if (event.entity instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer)event.entity;
+			
+			StarWars.instance.forceServerUtil.setForceFactionToUUID(player.getUniqueID().toString(), StarWars.instance.force.getForceFaction());
 		}
 	}
 	
@@ -97,9 +109,9 @@ public class SWEventHandler
 		{
 			EntityPlayer player = (EntityPlayer)event.entity;
 			
-			if (Keyboard.isKeyDown(Keyboard.KEY_F))
+			if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) && Keyboard.isKeyDown(Keyboard.KEY_F))
 			{
-				player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + player.getUniqueID().toString() + ": " + StarWars.instance.forceHandler.getForceFactionFromUUID(player.getUniqueID().toString())));
+				player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + player.getUniqueID().toString() + ": " + StarWars.instance.forceServerUtil.getForceFactionFromUUID(player.getUniqueID().toString())));
 				//player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + "KingOfAmager's UUID Here!" + ": " + StarWars.instance.forceHandler.getForceFactionFromUUID(player.getUniqueID().toString())));
 			}
 			

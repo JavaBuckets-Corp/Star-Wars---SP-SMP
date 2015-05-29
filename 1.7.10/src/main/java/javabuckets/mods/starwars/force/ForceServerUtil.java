@@ -3,11 +3,19 @@ package javabuckets.mods.starwars.force;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.server.MinecraftServer;
 import javabuckets.mods.starwars.utility.LogHelper;
 
-public class ForceHandler 
+public class ForceServerUtil 
 {
 	public Map force = new HashMap();
+	
+	public MinecraftServer server;
+	
+	public void serverHandling(MinecraftServer server)
+	{
+		this.server = server;
+	}
 	
 	public String getForceFactionFromUUID(String UUID)
 	{
@@ -32,5 +40,19 @@ public class ForceHandler
 			LogHelper.info("Succesfuly set force faction for player with UUID: " + UUID + " to " + forceFaction);
 		}
 		force.put(UUID, forceFaction);
+	}
+	
+	public boolean getCanPlayerUseForceFromUUID(String UUID)
+	{
+		String ff = getForceFactionFromUUID(UUID);
+		
+		if (ff != ForceReference.F_Private || ff != ForceReference.F_Soldier || ff != ForceReference.F_Sergeant || ff != ForceReference.F_Commander || ff != ForceReference.F_Elite || ff != ForceReference.F_SurpremeElite)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 }

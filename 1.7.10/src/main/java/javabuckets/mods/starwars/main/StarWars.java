@@ -2,12 +2,13 @@ package javabuckets.mods.starwars.main;
 
 import javabuckets.mods.starwars.command.CommandSetForceFaction;
 import javabuckets.mods.starwars.force.Force;
-import javabuckets.mods.starwars.force.ForceHandler;
+import javabuckets.mods.starwars.force.ForceServerUtil;
 import javabuckets.mods.starwars.generator.SWWorldGenerator;
 import javabuckets.mods.starwars.gui.GUIHandler;
 import javabuckets.mods.starwars.gui.hud.HUDOverlay;
 import javabuckets.mods.starwars.handler.SWEventHandler;
 import javabuckets.mods.starwars.init.ModBlocks;
+import javabuckets.mods.starwars.init.ModCommands;
 import javabuckets.mods.starwars.init.ModEnchantments;
 import javabuckets.mods.starwars.init.ModEntities;
 import javabuckets.mods.starwars.init.ModItems;
@@ -16,6 +17,7 @@ import javabuckets.mods.starwars.init.ModRecipes;
 import javabuckets.mods.starwars.proxies.ServerProxy;
 import javabuckets.mods.starwars.utility.Reference;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -40,7 +42,7 @@ public class StarWars
 	public static StarWars instance;
 	
 	public Force force = new Force();
-	public ForceHandler forceHandler = new ForceHandler();
+	public ForceServerUtil forceServerUtil = new ForceServerUtil();
 	
 	public static CreativeTabs swTab = new CreativeTabs("starwars")
 	{
@@ -84,6 +86,8 @@ public class StarWars
 	@EventHandler
 	public void onServerStarting(FMLServerStartingEvent event)
 	{
-		event.registerServerCommand(new CommandSetForceFaction());
+		ModCommands.init(event);
+		
+		forceServerUtil.serverHandling(event.getServer());
 	}
 }

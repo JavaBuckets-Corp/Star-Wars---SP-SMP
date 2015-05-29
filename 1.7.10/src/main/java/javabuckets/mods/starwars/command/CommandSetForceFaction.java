@@ -2,7 +2,7 @@ package javabuckets.mods.starwars.command;
 
 import java.util.List;
 
-import javabuckets.mods.starwars.force.ForceHandler;
+import javabuckets.mods.starwars.force.ForceServerUtil;
 import javabuckets.mods.starwars.force.ForceReference;
 import javabuckets.mods.starwars.main.StarWars;
 import net.minecraft.command.CommandBase;
@@ -38,12 +38,23 @@ public class CommandSetForceFaction extends CommandBase
 				}
 
 				setCommandSenderForceFaction(icommandsender, astring, ForceReference.Newbie);
+				
 				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_Private);
 				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_Soldier);
 				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_Sergeant);
 				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_Commander);
-				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_Elite.replace(' ', '_'));
-				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_SurpremeElite.replace(' ', '_'));
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_Elite);
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.F_SurpremeElite);
+				
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.FF_Padawan);
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.FF_JediKnight);
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.FF_Jedi);
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.FF_JediMaster);
+				
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.SF_SithSpawn);
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.SF_SithTrainee);
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.SF_Sith);
+				setCommandSenderForceFaction(icommandsender, astring, ForceReference.SF_SithLord);
 			}
 		}
 	}
@@ -54,9 +65,9 @@ public class CommandSetForceFaction extends CommandBase
 		
 		if (astring[0].equalsIgnoreCase(forceFaction))
 		{
-			StarWars.instance.forceHandler.setForceFactionToUUID(player.getUniqueID().toString(), forceFaction.replace('_', ' '));
-			StarWars.instance.force.setForceFaction(forceFaction.replace('_', ' '));
-			icommandsender.addChatMessage(new ChatComponentText(icommandsender.getCommandSenderName() + " have been added to the " + forceFaction.replace('_', ' ') + " force faction"));
+			StarWars.instance.forceServerUtil.setForceFactionToUUID(player.getUniqueID().toString(), forceFaction);
+			StarWars.instance.force.setForceFaction(forceFaction);
+			icommandsender.addChatMessage(new ChatComponentText(icommandsender.getCommandSenderName() + " have been added to the " + forceFaction + " force faction"));
 		}	
 	}
 
@@ -67,12 +78,23 @@ public class CommandSetForceFaction extends CommandBase
 			return getListOfStringsMatchingLastWord(astring, new String[] 
 					{ 
 						ForceReference.Newbie, 
+						
 						ForceReference.F_Private, 
 						ForceReference.F_Soldier, 
 						ForceReference.F_Sergeant, 
 						ForceReference.F_Commander, 
-						ForceReference.F_Elite.replace(' ', '_'), 
-						ForceReference.F_SurpremeElite.replace(' ', '_') 
+						ForceReference.F_Elite, 
+						ForceReference.F_SurpremeElite,
+						
+						ForceReference.FF_Padawan,
+						ForceReference.FF_JediKnight,
+						ForceReference.FF_Jedi,
+						ForceReference.FF_JediMaster,
+				
+						ForceReference.SF_SithSpawn,
+						ForceReference.SF_SithTrainee,
+						ForceReference.SF_Sith,
+						ForceReference.SF_SithLord
 					});
 		}
 		return null;

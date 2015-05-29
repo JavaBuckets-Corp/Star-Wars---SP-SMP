@@ -16,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -72,8 +73,6 @@ public class ItemLightsaber extends ItemSword
 			par1ItemStack.getTagCompound().setBoolean("active", !par1ItemStack.getTagCompound().getBoolean("active"));
 			par3EntityPlayer.playSound(par1ItemStack.getTagCompound().getBoolean("active") ? Reference.MOD_ID + ":" + "lightsaber_on" : Reference.MOD_ID + ":" + "lightsaber_off", 1.0F, 1.0F);
 		}
-		StarWars.instance.force.setForceFaction("n0thing");
-		StarWars.instance.forceHandler.force.put(par3EntityPlayer.getUniqueID().toString(), StarWars.instance.force.getForceFaction());
 		return par1ItemStack;
 	}
 	

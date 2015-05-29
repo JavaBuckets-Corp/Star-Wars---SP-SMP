@@ -6,8 +6,8 @@ import net.minecraft.world.World;
 
 public class Force 
 {
-	private String forceFaction = "Private";
-	private float forcePowers;
+	private String forceFaction = ForceReference.Newbie;
+	private float forcePowers = 100F;
 	
 	public void init(EntityPlayer player, World world)
 	{
@@ -44,5 +44,17 @@ public class Force
 	public float getForcePowers() 
 	{
 		return forcePowers;
+	}
+	
+	public boolean getCanPlayerUseForce()
+	{
+		if (this.forceFaction == ForceReference.F_Private || this.forceFaction == ForceReference.F_Soldier || this.forceFaction == ForceReference.F_Sergeant || this.forceFaction == ForceReference.F_Commander || this.forceFaction == ForceReference.F_Elite || this.forceFaction == ForceReference.F_SurpremeElite)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 }
