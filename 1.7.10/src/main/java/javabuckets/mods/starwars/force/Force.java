@@ -14,6 +14,11 @@ public class Force
 		
 	}
 	
+	public void update(EntityPlayer player, World world)
+	{
+		
+	}
+	
 	public void writeToNBT(NBTTagCompound par1NBTTagCompound)
 	{
 		par1NBTTagCompound.setString("forceFaction", this.forceFaction);

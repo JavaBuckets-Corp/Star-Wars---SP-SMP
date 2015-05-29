@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import javabuckets.mods.starwars.entity.*;
 import javabuckets.mods.starwars.entity.item.EntityLightsaber;
+import javabuckets.mods.starwars.gui.hud.HUDOverlay;
 import javabuckets.mods.starwars.init.ModWeapons;
 import javabuckets.mods.starwars.model.armor.*;
 import javabuckets.mods.starwars.renderer.*;
@@ -47,6 +48,8 @@ public class ClientProxy extends ServerProxy
 		//RenderingRegistry.registerEntityRenderingHandler(EntitySpaceshipTest.class, new RenderSpaceshipTest());
 
 		//RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, new RenderCustomPlayer());
+		
+		HUDOverlay.init();
 	}
 	
 	@SideOnly(Side.CLIENT)

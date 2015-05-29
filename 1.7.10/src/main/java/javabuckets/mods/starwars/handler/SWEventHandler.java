@@ -1,28 +1,19 @@
 package javabuckets.mods.starwars.handler;
 
-import org.lwjgl.input.Keyboard;
-
 import javabuckets.mods.starwars.init.ModWeapons;
 import javabuckets.mods.starwars.interfaces.IZoomingItem;
 import javabuckets.mods.starwars.main.StarWars;
 import javabuckets.mods.starwars.player.ExtendedPlayer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.world.World;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerDropsEvent;
-import net.minecraftforge.event.world.WorldEvent;
+
+import org.lwjgl.input.Keyboard;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class SWEventHandler
@@ -41,17 +32,17 @@ public class SWEventHandler
 		}
 	}
 	
-	@SubscribeEvent
-	public void onWorldLoad(WorldEvent.Load event)
-	{
-		World world = event.world;
-
-		if (world.provider.dimensionId == 0)
-		{
-
-		}
-	}
-	
+//	@SubscribeEvent
+//	public void onWorldLoad(WorldEvent.Load event)
+//	{
+//		World world = event.world;
+//
+//		if (world.provider.dimensionId == 0)
+//		{
+//
+//		}
+//	}
+//	
 	@SubscribeEvent
 	public void onEntityJoinWorld(EntityJoinWorldEvent event)
 	{
@@ -62,33 +53,33 @@ public class SWEventHandler
 			StarWars.instance.forceServerUtil.setForceFactionToUUID(player.getUniqueID().toString(), StarWars.instance.force.getForceFaction());
 		}
 	}
-	
-	@SubscribeEvent
-	public void onPlayerFall(LivingFallEvent event)
-	{
-		if (event.entityLiving instanceof EntityPlayer)
-		{
-			EntityPlayer player = (EntityPlayer)event.entityLiving;
-			
-			/*if (player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem() instanceof IJetpack)
-			{
-				if (player.motionY > -0.7F)
-				{
-					event.setCanceled(true);
-				}
-			}*/
-		}
-	}
-	
-	@SubscribeEvent
-	public void onDrawItemTooltip(ItemTooltipEvent event)
-	{
-		/*if (event.itemStack.getItem() != null && StarWars.valueList[event.itemStack.itemID] != 0)
-		{
-			String s = String.valueOf(StarWars.stringValueList[event.itemStack.itemID]);
-			event.toolTip.add("" + s);
-		}*/
-	}
+//	
+//	@SubscribeEvent
+//	public void onPlayerFall(LivingFallEvent event)
+//	{
+//		if (event.entityLiving instanceof EntityPlayer)
+//		{
+//			EntityPlayer player = (EntityPlayer)event.entityLiving;
+//			
+//			/*if (player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem() instanceof IJetpack)
+//			{
+//				if (player.motionY > -0.7F)
+//				{
+//					event.setCanceled(true);
+//				}
+//			}*/
+//		}
+//	}
+//	
+//	@SubscribeEvent
+//	public void onDrawItemTooltip(ItemTooltipEvent event)
+//	{
+//		/*if (event.itemStack.getItem() != null && StarWars.valueList[event.itemStack.itemID] != 0)
+//		{
+//			String s = String.valueOf(StarWars.stringValueList[event.itemStack.itemID]);
+//			event.toolTip.add("" + s);
+//		}*/
+//	}
 
 	@SubscribeEvent
 	public void onFOVUpdate(FOVUpdateEvent event)
@@ -135,7 +126,7 @@ public class SWEventHandler
 				}
 			}
 			
-			//StarWars.instance.force.onUpdate(player, player.worldObj);
+			StarWars.instance.force.update(player, player.worldObj);
 		}
 	}
 }
