@@ -6,6 +6,7 @@ import javabuckets.mods.starwars.force.ForceServerUtil;
 import javabuckets.mods.starwars.generator.SWWorldGenerator;
 import javabuckets.mods.starwars.gui.GUIHandler;
 import javabuckets.mods.starwars.gui.hud.HUDOverlay;
+import javabuckets.mods.starwars.handler.SWConnectionEventHandler;
 import javabuckets.mods.starwars.handler.SWEventHandler;
 import javabuckets.mods.starwars.init.ModBlocks;
 import javabuckets.mods.starwars.init.ModCommands;
@@ -82,6 +83,7 @@ public class StarWars
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new SWEventHandler());
+		MinecraftForge.EVENT_BUS.register(new SWConnectionEventHandler());
 	}
 	
 	@EventHandler

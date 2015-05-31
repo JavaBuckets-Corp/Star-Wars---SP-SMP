@@ -43,17 +43,6 @@ public class SWEventHandler
 //		}
 //	}
 //	
-	@SubscribeEvent
-	public void onEntityJoinWorld(EntityJoinWorldEvent event)
-	{
-		if (event.entity instanceof EntityPlayer)
-		{
-			EntityPlayer player = (EntityPlayer)event.entity;
-			
-			StarWars.instance.forceServerUtil.setForceFactionToUUID(player.getUniqueID().toString(), StarWars.instance.force.getForceFaction());
-		}
-	}
-//	
 //	@SubscribeEvent
 //	public void onPlayerFall(LivingFallEvent event)
 //	{
@@ -102,7 +91,7 @@ public class SWEventHandler
 			
 			if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) && Keyboard.isKeyDown(Keyboard.KEY_F))
 			{
-				player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + player.getUniqueID().toString() + ": " + StarWars.instance.forceServerUtil.getForceFactionFromUUID(player.getUniqueID().toString())));
+				player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + "9e789110-2189-488e-a609-5adf9eb96bb4" + ": " + StarWars.instance.forceServerUtil.getForceFactionFromUUID(player.getUniqueID().toString())));
 				//player.addChatMessage(new ChatComponentText("Current Force Faction for player with UUID " + "KingOfAmager's UUID Here!" + ": " + StarWars.instance.forceHandler.getForceFactionFromUUID(player.getUniqueID().toString())));
 			}
 			
