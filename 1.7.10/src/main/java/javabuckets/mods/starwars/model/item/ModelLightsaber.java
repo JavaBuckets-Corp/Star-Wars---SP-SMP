@@ -115,7 +115,7 @@ public class ModelLightsaber extends ModelBase
 		setRotation(bladeInner, 0F, 0F, 0F);
 		
 		bladeOuter = new ModelRenderer(this, 0, 0);
-		bladeOuter.addBox(-1.5F, -33F, -1.5F, 3, 33, 3);
+		bladeOuter.addBox(-1F, -33F, -1F, 2, 33, 2);
 		bladeOuter.setRotationPoint(0F, 6F, 0F);
 		bladeOuter.setTextureSize(64, 64);
 		bladeOuter.mirror = true;

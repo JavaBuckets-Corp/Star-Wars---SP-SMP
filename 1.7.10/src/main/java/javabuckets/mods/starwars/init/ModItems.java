@@ -16,5 +16,6 @@ public class ModItems
 		
 		ModWeapons.init();
 		ModMaterials.init();
+		ModArmor.init();
 	}
 }

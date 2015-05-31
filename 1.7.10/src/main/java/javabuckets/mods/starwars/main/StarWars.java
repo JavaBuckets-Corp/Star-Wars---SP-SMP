@@ -79,11 +79,16 @@ public class StarWars
 	}
 	
 	@EventHandler
+	public void secondInit(FMLInitializationEvent event)
+	{
+		//MinecraftForge.EVENT_BUS.register(new SWConnectionEventHandler());
+	}
+	
+	@EventHandler
 	@SideOnly(Side.CLIENT)
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new SWEventHandler());
-		MinecraftForge.EVENT_BUS.register(new SWConnectionEventHandler());
 	}
 	
 	@EventHandler

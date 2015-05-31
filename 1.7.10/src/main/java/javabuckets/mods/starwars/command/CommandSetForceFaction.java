@@ -5,6 +5,7 @@ import java.util.List;
 import javabuckets.mods.starwars.force.ForceServerUtil;
 import javabuckets.mods.starwars.force.ForceReference;
 import javabuckets.mods.starwars.main.StarWars;
+import javabuckets.mods.starwars.utility.LogHelper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -67,7 +68,8 @@ public class CommandSetForceFaction extends CommandBase
 		{
 			StarWars.instance.forceServerUtil.setForceFactionToUUID(player.getUniqueID().toString(), forceFaction);
 			StarWars.instance.force.setForceFaction(forceFaction);
-			icommandsender.addChatMessage(new ChatComponentText(icommandsender.getCommandSenderName() + " have been added to the " + forceFaction + " force faction"));
+			
+			LogHelper.info(icommandsender.getCommandSenderName() + " have been added to the " + forceFaction + " force faction");
 		}	
 	}
 

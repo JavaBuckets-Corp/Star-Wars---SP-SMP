@@ -41,7 +41,7 @@ public class Force
 		return forceFaction;
 	}
 	
-	public void setForcePowers(float forcePowers) 
+	public void setForcePowers(float forcePowers)
 	{
 		this.forcePowers = forcePowers;
 	}
