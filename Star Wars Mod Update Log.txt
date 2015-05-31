@@ -1,0 +1,52 @@
+The Star Wars Mod
+
+Update Log
+
+*   = Added Feature
+-   = Feature that needs Implementing
+-*  = Feature that is under Development
+--  = Feature that doesn't need a hurry to be Implemented
+-/  = Feature that may not be implemented due to certain unique circumstances
+
+===================================================================================================================
+
+* Updated to 1.7.10
+* Base mod files added
+* Mod structure beginning to form a decent setup wtih great utility
+* Added LLib to the workspace (Great API)
+* Added Working Blasters (Sniper, Minigun, Pistol, Rifle)
+* Added Lightsabers
+* Added Throwing Ligthsaber
+* Added Double Lightsaber
+* Added 3D Models for all weapons
+* Added more custom utility (LogHelper, BlockBasic, ItemBasic, ItemMetaBasic, BlockRegistry)
+* Added Creative Tab (in StarWars.java)
+* Added Worlg Generator for ore gen in the future
+* Added Enchantments (Burst & Throw) (Throw will probs not be an enchantment in the future)
+* Added Weapon Forge (5x5 grided crafting table)
+* Added crafting material items (steel plate & ingot, ligthsaber parts, blaster parts, crystals!)
+* Added Crystal Charger
+* Added Sniper Zoom Function 
+
+
+
+- Update Lightsaber Model
+-*UUID, Force & Force Factions, Server Handling (Think about the scenario! Then look at code!)
+- The Force
+- [NOT REALLY A FEATURE] Test for SMP support (Multiplayer)
+- Gamemodes (TDM, FFA, CTF, Hardpoint)
+-*Classes (Jedi knight, Jedi Master, Clone troopers (Ranking system), Droids (Ranking system), Droideka, Sith, Sith Lord)
+-*More weapons!
+-/In-game main menu, for information, setting changes and other misc.)
+--Space Dimension
+--Spaceships
+--[MOSTLY FOR STORY MODE] Entities (Droids, Troopers, Jedi, Sith, Planet habitants)
+--[MOSTLY FOR STORY MODE] Planet Travel System, and planets to travel to.
+
+===================================================================================================================
+
+Work on this:
+
+Classes
+Gamemodes (TDM, FFA, CTF, Hardpoint)
+Current Weapon, fixes and updates
