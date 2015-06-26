@@ -1,7 +1,9 @@
 package javabuckets.mods.starwars.entity.item;
 
 import java.util.List;
+import java.util.Random;
 
+import javabuckets.mods.starwars.utility.LogHelper;
 import javabuckets.mods.starwars.utility.Reference;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

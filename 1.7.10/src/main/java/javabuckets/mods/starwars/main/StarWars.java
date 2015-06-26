@@ -1,12 +1,9 @@
 package javabuckets.mods.starwars.main;
 
-import javabuckets.mods.starwars.command.CommandSetForceFaction;
 import javabuckets.mods.starwars.force.Force;
 import javabuckets.mods.starwars.force.ForceServerUtil;
 import javabuckets.mods.starwars.generator.SWWorldGenerator;
 import javabuckets.mods.starwars.gui.GUIHandler;
-import javabuckets.mods.starwars.gui.hud.HUDOverlay;
-import javabuckets.mods.starwars.handler.SWConnectionEventHandler;
 import javabuckets.mods.starwars.handler.SWEventHandler;
 import javabuckets.mods.starwars.init.ModBlocks;
 import javabuckets.mods.starwars.init.ModCommands;
@@ -18,7 +15,6 @@ import javabuckets.mods.starwars.init.ModRecipes;
 import javabuckets.mods.starwars.proxies.ServerProxy;
 import javabuckets.mods.starwars.utility.Reference;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;

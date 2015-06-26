@@ -23,7 +23,7 @@ public class ModArmor
 	
 	public static void init()
 	{
-		mandalorianHelmet = (new ItemMandalorianArmor(0).setUnlocalizedName("mandalorian_helmet"));
+		/*mandalorianHelmet = (new ItemMandalorianArmor(0).setUnlocalizedName("mandalorian_helmet"));
 		GameRegistry.registerItem(mandalorianHelmet, "mandalorian_helmet", Reference.MOD_ID);
 		
 		mandalorianChestplate = (new ItemMandalorianChestplate(1).setUnlocalizedName("mandalorian_chestplate"));
@@ -42,7 +42,7 @@ public class ModArmor
 		GameRegistry.registerItem(bobaFettMandalorianLeggings, "boba_fetts_mandalorian_leggings", Reference.MOD_ID);
 		
 		jetpack = (new ItemJetpack().setUnlocalizedName("jetpack"));
-		bobaFettJetpack = (new ItemJetpack().setUnlocalizedName("boba_fetts_jetpack"));
+		bobaFettJetpack = (new ItemJetpack().setUnlocalizedName("boba_fetts_jetpack"));*/
 		//mandalorianArmorMolds = (new ItemMetaBasic(config.mandalorianArmorMoldsID, new String[]{"Mandalorian Helmet Mold", "Mandalorian Chestplate Mold", "Mandalorian Leggings Mold"}));
 
 		
