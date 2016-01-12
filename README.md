@@ -8,7 +8,9 @@ Thom
 
 ## Programmers
 Thom
+
 MagikModder
+
 PaperTazer
 
 ## Artists
