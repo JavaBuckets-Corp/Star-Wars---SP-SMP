@@ -33,6 +33,8 @@ Update Log
 - Update Lightsaber Model
 -*UUID, Force & Force Factions, Server Handling (Think about the scenario! Then look at code!)
 - The Force
+-* Kylo Ren's Lightsaber
+-* Lightsaber Customization
 - [NOT REALLY A FEATURE] Test for SMP support (Multiplayer)
 - Gamemodes (TDM, FFA, CTF, Hardpoint)
 -*Classes (Jedi knight, Jedi Master, Clone troopers (Ranking system), Droids (Ranking system), Droideka, Sith, Sith Lord)
